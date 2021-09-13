@@ -49,4 +49,25 @@ class UserController extends Controller
         return response()->json(['success'=>$success], $this->successStatus);
     }
 
+    public function profil()
+    {
+        $profil = User::all();
+        return response()->json($profil);
+    }
+    
+        public function update(Request $request)
+    {
+
+        $user = User::where('id','=',$request->id)->first();
+        $user->id   = $request->id;
+        $user->name   = $request->name;
+        $user->email   = $request->email;
+        $user->alamat   = $request->alamat;
+        $user->telepon  = $request->telepon;
+        $user->save();
+
+        return response()->json($user, 201);
+    }
+
+
 }

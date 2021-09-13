@@ -22,5 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
+Route::get('/profil', [UserController::class, 'profil']);
+Route::post('/update', [UserController::class, 'update']);
 Route::post('/masuk', [SensorController::class, 'masuk']);
 Route::get('/keluar', [SensorController::class, 'keluar']);
